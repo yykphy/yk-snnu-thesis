@@ -1,0 +1,124 @@
+% -*- coding: utf-8 -*-
+% !TEX program = xelatex
+
+%==================================================
+%=======           填写个人信息
+%==================================================
+\newcommand\clcNumber{O123}
+\newcommand\securityClassification{公开}
+\newcommand\studentId{B12345}
+\newcommand\thesisTitleCN{陕西师范大学博士论文\LaTeX 模板}
+\newcommand\thesisTitleEN{PhD thesis \LaTeX \; template of Shaanxi Normal University }
+\newcommand\thesisAuthor{杨玉坤}
+\newcommand\supervisor{张松斌 \quad 教授}
+\newcommand\subjectFirst{物理学}
+\newcommand\subjectSecond{原子与分子物理}
+\newcommand\subdate{二〇二二年五月}
+
+
+
+
+%==================================================
+%=======               设置封面
+%=======   不建议改动以下内容，除非你懂自己在做什么
+%==================================================
+{
+    \setlength\parindent{0em}                                                 % 设置缩进
+    \renewcommand{\baselinestretch}{2}\selectfont                             % 设置行间距
+    % \ThisTileWallPaper{\paperwidth}{\paperheight}{pic/snnu/bgold.jpg} % 设置封面背景
+    \ThisTileWallPaper{\paperwidth}{\paperheight}{pic/snnu/bgnew.pdf}    % 设置封面背景
+    \vspace*{-3.0cm}
+    {
+        \zihao{-3}
+        \begin{tabular}{l@{}c p{3cm} l@{}c}
+            \heiti{分\ 类\ 号}    \quad      & \underline{\makebox[3cm][c]{\clcNumber}} \\
+            \heiti{密\quad \ \ 级}\quad      & \underline{\makebox[3cm][c]{\kaishu \securityClassification}} \\
+            \heiti{学\quad \ \ 号}\quad      & \underline{\makebox[3cm][c]{\studentId}} \\
+        \end{tabular}
+    } \par
+    \vspace{8.5cm}
+    \begin{center}
+        \begin{tabular}{rc}
+            \zihao{-3} \heiti {\bfseries 题\quad 目} & \UnderlineCentered{13cm}{1.5mm}{\zihao{-3} \heiti \thesisTitleCN \\ \thesisTitleEN}\\
+        \end{tabular}
+    \end{center}
+    \vspace{1.5cm}
+    {
+    \newlength{\yklength}
+    \setlength{\yklength}{\widthof{一二三四五六七八九}}
+    \begin{center}
+    \begin{tblr}{colspec = {Q[c, m, \yklength]Q[c, t, 13\ccwd]},}
+        {\zihao{-3} \heiti 作\hfill 者 }                                    & \CJKunderline[thickness=0.6pt]{\makebox[14\ccwd]{\zihao{-3}\kaishu\thesisAuthor}} \\
+        {\zihao{-3} \heiti 指\hfill 导\hfill 教\hfill 师}                   & \CJKunderline[thickness=0.6pt]{\makebox[14\ccwd]{\zihao{-3}\kaishu\supervisor}} \\
+        {\zihao{-3} \heiti 一\hfill 级\hfill 学\hfill 科\hfill 名\hfill 称}  & \CJKunderline[thickness=0.6pt]{\makebox[14\ccwd]{\zihao{-3}\kaishu\subjectFirst}} \\
+        {\zihao{-3} \heiti 二\hfill 级\hfill 学\hfill 科\hfill 名\hfill 称}  & \CJKunderline[thickness=0.6pt]{\makebox[14\ccwd]{\zihao{-3}\kaishu\subjectSecond}}  \\
+        {\zihao{-3} \heiti 提\hfill 交\hfill 日\hfill 期}                    & \CJKunderline[thickness=0.6pt]{\makebox[14\ccwd]{\zihao{-3}\kaishu\subdate}} \\
+    \end{tblr}    
+    \end{center}
+    }
+}
+%==================================================
+%=======             加载空白页
+%==================================================
+\clearpage
+\hbox{}
+\clearpage
+
+%==================================================
+%=======            学位论文原创性声明
+%=======       学位论文知识版权及使用授权说明书
+%==================================================
+
+%=======  学位论文原创性声明
+{
+    \renewcommand{\baselinestretch}{1.45} % 设置声明的行间距
+    \setlength{\parindent}{2em} % 首行缩进
+    % \vspace*{0.5cm}
+    {
+        {\centering \heiti \zihao{3} 学位论文原创性声明\par}    % 设置标题
+        \vspace{21pt}
+        本人声明所呈交的学位论文是我在导师指导下进行的研究工作所取得的研究成果。
+        尽我所知，除本文中已经注明引用的内容和致谢的地方外，
+        本论文不包含其他个人或集体已经发表或撰写过的研究成果，
+        也不包含本人或他人已申请学位或其他用途使用过的成果。
+        对本文的研究做出重要贡献的个人和集体，均已在文中做了明确说明并表示谢意。
+
+        本学位论文若有不实或者侵犯他人权利的，本人愿意承担一切相关的法律责任。
+        \vspace{1cm}
+        \begin{center}
+            \hspace*{2em}作者签名：\underline{\makebox[5em][c]{}} \hfill
+            日期：
+            \underline{\makebox[3em][c]{}} 年
+            \underline{\makebox[1.5em][c]{}} 月
+            \underline{\makebox[1.5em][c]{}} 日
+        \end{center}
+    }
+
+    \vspace{2.5cm}
+%=======  学位论文知识版权及使用授权说明书
+    {
+        {\centering \heiti \zihao{3}  学位论文知识版权及使用授权说明书\par}
+        \vspace{21pt}
+        本人在导师指导下所完成的学位论文及相关成果，知识产权归属陕西师范大学。
+        本人完全了解陕西师范大学有关保存、使用学位论文的规定，允许本论文被查阅和借阅，
+        学校有权保留学位论文并向国家有关部门或机构送交论文的纸质版和电子版，
+        有权将本论文的全部或部分内容编入有关数据库进行检索，可以采用任何复制手段保存和汇编本论文。
+        本人保证毕业离校后，发表本论文或使用本论文成果时署名单位仍为陕西师范大学。
+
+        保密论文解密后适用本声明。
+        \vspace{1cm}
+        \begin{center}
+            \hspace*{2em}作者签名：\underline{\makebox[5em][c]{}} \hfill
+            日期：
+            \underline{\makebox[3em][c]{}} 年
+            \underline{\makebox[1.5em][c]{}} 月
+            \underline{\makebox[1.5em][c]{}} 日
+        \end{center}
+    }
+}
+%==================================================
+%=======             加载空白页
+%==================================================
+\clearpage
+\hbox{}
+\clearpage

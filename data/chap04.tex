@@ -1,0 +1,76 @@
+% -*- coding: utf-8 -*-
+% !TEX program = xelatex
+
+
+\chapter{表格的使用}
+
+
+
+\section{简单三线表格}
+
+
+
+\begin{table}[!htbp]
+    \centering
+    \bicaption{Child-Lefebvre 模型$ V_{22}^{\mathrm{d}} $势能曲线束缚态能量}{Bound energy for $ V_{22}^{\mathrm{d}} $ of Child-Lefebvre model}
+    \scalebox{0.9}{    
+    \begin{tabular}{cccccccc}
+            \toprule
+            \multicolumn{1}{c}{$\nu$} &\multicolumn{1}{c}{Bound of $ V_{22}^{\mathrm{d}} $} &\multicolumn{1}{c}{$\nu$} & \multicolumn{1}{c}{Bound of $ V_{22}^{\mathrm{d}} $}&\multicolumn{1}{c}{$\nu$} & \multicolumn{1}{c}{Bound of $ V_{22}^{\mathrm{d}} $}&\multicolumn{1}{c}{$\nu$} & \multicolumn{1}{c}{Bound of $ V_{22}^{\mathrm{d}} $}\\
+            \cmidrule(r){1-2} \cmidrule(r){3-4} \cmidrule(r){5-6} \cmidrule(r){7-8}
+            %\midrule
+            0  & $0.0015853$ & 9  & $0.0269396$ & 18 & $0.0462668$ & 27 & $0.0595669$ \\
+            1  & $0.0047001$ & 10 & $0.0293847$ & 19 & $0.0480422$ & 28 & $0.0606726$ \\
+            2  & $0.0077404$ & 11 & $0.0317554$ & 20 & $0.0497432$ & 29 & $0.0617040$ \\
+            3  & $0.0107064$ & 12 & $0.0340517$ & 21 & $0.0513698$ & 30 & $0.0626609$ \\
+            4  & $0.0135980$ & 13 & $0.0362735$ & 22 & $0.0529220$ & 31 & $0.0635434$ \\
+            5  & $0.0164151$ & 14 & $0.0384210$ & 23 & $0.0543998$ & 32 & $0.0643515$ \\
+            6  & $0.0191578$ & 15 & $0.0404941$ & 24 & $0.0558032$ & 33 & $0.0650852$ \\
+            7  & $0.0218262$ & 16 & $0.0424927$ & 25 & $0.0571322$ & 34 & $0.0657445$ \\
+            8  & $0.0244201$ & 17 & $0.0444170$ & 26 & $0.0583867$ & 35 & $0.0663294$ \\
+            \bottomrule
+        \end{tabular}%
+    }
+\label{tab:ykchildmodelv22bound}
+\end{table}%
+
+
+\section{进阶旋转缩放表格}
+
+
+
+
+%=========================================%
+\begin{sidewaystable}[!htbp]
+    \centering
+    \bicaption{H$_{2}$-Ar系统Lennard-Jones势$\ell=7$分波共振参数}{Resonance parameters for Lennard-Jones potential $\ell=7$ in H$_{2}$-Ar system.}
+    \scalebox{0.98}{
+        \begin{tabular}{ccccccc}
+            \toprule
+            Methods & \multicolumn{2}{c}{Nicolaides~\emph{et al.}, ECS\cite{RN1271}} & \multicolumn{2}{c}{Connor~\emph{et al.}, CSM\cite{RN1273}}   & \multicolumn{2}{c}{Present CDM} \\
+            \cmidrule(r){1-1} \cmidrule(r){2-3} \cmidrule(r){4-5} \cmidrule(r){6-7}
+            State & $ E_{\ell=7}~(\text{a.u.})$ &  $ \Gamma_{\ell=7}~(\text{a.u.}) $ & $ E_{\ell=7}~(\text{a.u.})$ &  $ \Gamma_{\ell=7}~(\text{a.u.}) $ & $ E_{\ell=7}~(\text{a.u.})$ &  $ \Gamma_{\ell=7}~(\text{a.u.}) $\\
+            \cmidrule(r){1-1} \cmidrule(r){2-2} \cmidrule(r){3-3} \cmidrule(r){4-4} \cmidrule(r){5-5} \cmidrule(r){6-6} \cmidrule(r){7-7}
+            $D_{\text{e}}=40~\text{cm}^{-1}$ & $  4.99465\times 10^{-5}$ & $1.11721\times 10^{-5 } $ & $5.00103\times 10^{-5}$ & $1.13134\times 10^{-5 }$  &$4.99944\times 10^{-5}$ & $ 1.12902\times 10^{-5 }$\\
+            $D_{\text{e}}=45~\text{cm}^{-1}$ & $  4.13396\times 10^{-5}$ & $4.68847\times 10^{-6 } $ & $4.13305\times 10^{-5}$ & $4.72036\times 10^{-6 }$  &$4.13146\times 10^{-5}$ & $ 4.71076\times 10^{-6 }$\\
+            $D_{\text{e}}=50~\text{cm}^{-1}$ & $  3.18078\times 10^{-5}$ & $1.18784\times 10^{-6 } $ & $3.18032\times 10^{-5}$ & $1.18647\times 10^{-6 }$  &$3.17882\times 10^{-5}$ & $ 1.18265\times 10^{-6 }$\\
+            $D_{\text{e}}=55~\text{cm}^{-1}$ & $  2.10047\times 10^{-5}$ & $9.04888\times 10^{-8 } $ & $2.10047\times 10^{-5}$ & $9.04888\times 10^{-8 }$  &$2.09882\times 10^{-5}$ & $ 9.00267\times 10^{-8 }$\\
+            $D_{\text{e}}=60~\text{cm}^{-1}$ & $  8.78917\times 10^{-6}$ & $1.93872\times 10^{-10} $ & $8.78917\times 10^{-6}$ & $2.00980\times 10^{-10}$  &$8.77337\times 10^{-6}$ & $ 1.98465\times 10^{-10}$\\
+            \toprule
+        \end{tabular}%
+    }
+    \label{tab:j=7}%
+
+\end{sidewaystable}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,232 @@
+% -*- coding: utf-8 -*-
+% !TEX program = xelatex
+%---------------------------------------------------------------------------
+%         _                                     _   _               _     
+%   _   _| | __     ___ _ __  _ __  _   _      | |_| |__   ___  ___(_)___ 
+%  | | | | |/ /____/ __| '_ \| '_ \| | | |_____| __| '_ \ / _ \/ __| / __|
+%  | |_| |   <_____\__ \ | | | | | | |_| |_____| |_| | | |  __/\__ \ \__ \
+%   \__, |_|\_\    |___/_| |_|_| |_|\__,_|      \__|_| |_|\___||___/_|___/
+%   |___/                                                                 
+%---------------------------------------------------------------------------
+%     模板名称 ： yk-snnu-thesis
+%     模板功能 ： 陕师大博士/硕士论文模板
+%     模板用法 ： 
+%               1. 复杂编译 ： xelatex + biber + 3*xelatex  
+%               2. 简单编译 ： latexmk -xelatex
+%     最近更新 ： 2022年3月27日
+%     作者信息 ： 杨玉坤，陕西师范大学，物理学院，原子与分子物理
+%     联系方式 ： yykphy@gmail.com ; yk@snnu.edu.cn ; yangyukun@htu.edu.cn 
+%     注意事项 :
+%               1. 使用本模板，需致谢本模板或作者。
+%               2. 本模板不是官方模板，一切后果自负。
+%               3. 如果您有不同意见，那么您是对的，我是错的。
+%---------------------------------------------------------------------------
+
+%===========字体管理===========
+\usepackage{xeCJK}
+    \setmainfont{Times New Roman}
+    \newcommand{\xiaosi}{\fontsize{12pt}{\baselineskip}\selectfont}
+%===========基本设置===========
+\usepackage{wallpaper}                              % 封面背景
+\usepackage{mathtools,amsthm,amssymb,bm}            % 数学字体	
+\usepackage{geometry}                               % 页面边距设置
+\geometry{
+    a4paper,
+    left=30mm,
+    right=30mm,
+    top=43mm,
+    bottom=31mm,
+    headheight=16.05pt
+    } 
+\usepackage[bodytextleadingratio=1.67]{zhlineskip}  % 行距
+\usepackage{xpatch}                                 % 补丁
+\usepackage{tabularray}                             % Jianrui Lyu编写的表格宏包
+\usepackage{calc}
+\usepackage{xeCJKfntef}                             % 下划线
+\usepackage{fancyhdr}                               % 页眉页脚包
+\fancypagestyle{ykfancy}{%
+    \fancyhf{}                                      % 清空所有定义
+    \fancyfoot[CE,CO]{\zihao{5}  ~ \thepage ~ }     % 页脚为当前页码
+    \renewcommand{\headrule}{ \makebox[0pt][l]{\rule{\headwidth}{0pt}}}
+}
+\fancypagestyle{myfancy}{%
+    \fancyhf{}                                      % 清空所有定义
+    \fancyfoot[CE,CO]{\zihao{5} - ~ \thepage ~ -}   % 页脚为当前页码
+    \fancyhead[CE]{陕西师范大学博士学位论文}            % 偶数页居中的页眉
+    \fancyhead[CO]{\leftmark}                       % 奇数页居中的页眉
+    \renewcommand{\headrule}{%                      % 双页眉
+        \makebox[0pt][l]{\rule[.7\baselineskip]{\headwidth}{3pt}}%
+        \rule[.6\baselineskip]{\headwidth}{0.4pt}\vskip-.8\baselineskip
+    }
+}
+\patchcmd{\chaptermark}{\MakeUppercase}{\relax}{}{} % 打补丁，防止页眉中的英文单词变成大写
+%===========章节标题===========
+\ctexset{
+    chapter = {%
+        name = {第, 章},
+        number = \arabic{chapter},          % 用阿拉伯数字显示章节号
+        format += {\centering \zihao{3}},   % chapter居中
+        beforeskip = 20pt,                  % 设置章节标题前的垂直间距为
+        afterskip = 20pt,                   % 设置章节标题后的垂直间距为
+        fixskip = true                      % 设置固定间距为true，抑制标题前后的多余间距
+    },
+    section       = {format += {\raggedright \zihao{-3}}},
+    subsection    = {format += {\raggedright \zihao{4}} },
+    subsubsection = {format += {\raggedright \zihao{-4}}},
+    appendix      = {name = {附录}, numbering = true}
+}
+%=======设置论文标题可换行======= % yk - 20220327
+\usepackage{adjustbox}
+\newlength\myheight
+\newcommand\Mysavedprevdepth{}
+\newcommand\UnderlineCentered[3]{
+    \begin{adjustbox}{minipage=[t]{\dimexpr#1\relax},gstore totalheight=\myheight,margin=-8pt}
+        \centering\leavevmode#3\par\xdef\Mysavedprevdepth{\the\prevdepth}
+    \end{adjustbox}
+    \hspace*{-\dimexpr#1\relax}
+    \begin{adjustbox}{minipage=[t][\myheight]{\dimexpr#1\relax},margin=0pt}
+        \vphantom{Eg}\lower\dimexpr#2\relax\hbox to\hsize{\leaders\hrule height 0.6pt \hfill\kern0pt}\par
+        \kern-\dimexpr#2\relax
+        \xleaders\vbox to\baselineskip {\vfill\hbox{\lower\dimexpr#2\relax\hbox to\hsize
+        {\leaders\hrule height 0.6pt \hfill\kern0pt}}\kern-\dimexpr#2\relax}\vfill
+        \kern\Mysavedprevdepth
+    \end{adjustbox}%
+}
+%===========目录设置=========== % yk - 20220318
+\usepackage{titletoc}
+\titlecontents
+    {chapter}[4em]
+    {\bfseries\vspace*{7pt}}
+    {\contentslabel{4em}}
+    {\hspace*{-4em}}
+    {\hspace{.5em}\titlerule*{$.$}\contentspage} 
+\titlecontents% 节
+    {section}[4em]
+    {}
+    {\contentslabel{2em}}
+    {\hspace*{-2em}}
+    {\hspace{.5em}\titlerule*{$.$}\contentspage}
+\titlecontents% 小节
+    {subsection}[6em]
+    {}
+    {\contentslabel{3em}}
+    {\hspace*{-2em}}
+    {\hspace{.5em}\titlerule*{$.$}\contentspage}
+\titlecontents% 图
+    {figure}[4em]
+    {}
+    {\contentslabel[图~\thecontentslabel]{18mm}}
+    {\hspace*{-2em}}
+    {\hspace{.5em}\titlerule*{$.$}\contentspage}
+\titlecontents% 表
+    {table}[4em]
+    {}
+    {\contentslabel[表~\thecontentslabel]{18mm}}
+    {\hspace*{-2em}}
+    {\hspace{.5em}\titlerule*{$.$}\contentspage}
+
+\renewcommand\listfigurename{图目录}
+\renewcommand\listtablename{表目录}
+\setcounter{tocdepth}{2}           % yk - 20220318  目录深度
+\setcounter{secnumdepth}{3}        % yk - 20220318  目录深度
+
+%=====参考文献，biblatex格式====
+%  gbnamefmt: 参数选项
+%  uppercase: 使大小写符合 GB/T 7714-2015 的要求
+%  lowercase: 大小写由输入信息确定不做改变
+\usepackage[
+    backend=biber,
+    gbnamefmt=uppercase,
+    url=false, 
+    doi=false,
+    gbalign=left,
+    % backref=true,                  %反向引用，在参考文献中列出引用所在的页码
+    style=gb7714-2015]{biblatex}
+
+    \renewcommand{\bibfont}{\zihao{-4}}
+    \setlength{\bibitemsep}{0ex}   % 参考文献条目垂直间距
+
+    %-------------%
+    % \patchcmd{\thebibliography}{\clubpenalty4000}{\clubpenalty10000}{}{}      % no orphans
+    % \patchcmd{\thebibliography}{\widowpenalty4000}{\widowpenalty10000}{}{}    % no widows
+    % \patchcmd{\bibsetup}{\interlinepenalty=5000}{\interlinepenalty=10000}{}{} % no break of entry
+    %-------------%
+    % \interlinepenalty  %  用于控制在段落内分页的期望程度。
+    % \clubpenalty       %  用于附加控制在段落的第一行分页的期望程度。
+    % \widowpenalty      %  用于附加控制在段落的最后一行分页的期望程度。
+    % 数值越小则越希望断行，数值越大则越不希望断行，设置为10000表示无限大，就是强制不断行。
+    %-------------%
+
+\addbibresource{bib/refs.bib}      % 加载参考文献的文件
+%===========图表环境===========
+\usepackage{graphicx}              % 插图工具包
+\usepackage{subcaption}            % 子图标题包
+\usepackage[list=off]{bicaption}   % 图表中英文
+    \captionsetup{font=small}
+    \captionsetup[figure][bi-first]{name=图}
+    \captionsetup[figure][bi-second]{name=Fig.}
+    \captionsetup[table][bi-first]{name=表}
+    \captionsetup[table][bi-second]{name=Tab.}
+
+\usepackage[inline]{enumitem}      % 列表工具包
+    \setlist{                      % 设置列表样式
+        topsep=0.5em,              % 列表顶端的垂直空白
+        partopsep=0pt,             % 列表环境前面紧接着一个空白行时其顶端的额外垂直空白
+        itemsep=10pt plus 2pt,     % 列表项之间的额外垂直空白
+        parsep=0pt,                % 列表项内的段落之间的垂直空白
+        leftmargin=3.0em,          % 环境的左边界和列表之间的水平距离
+        rightmargin=0em,           % 环境的右边界和列表之间的水平距离
+        labelsep=0.5em,            % 包含标签的盒子与列表项的第一行文本之间的间隔
+        labelwidth=2em             % 包含标签的盒子的正常宽度；若实际宽度更宽，则使用实际宽度。
+    }
+%=========引用工具，实现超链接功能=========
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=black,
+    linkcolor=black,
+    anchorcolor=black,
+    citecolor=black,
+    bookmarksnumbered=true         % 设置书签
+}
+%=========================================
+%======= yk added other packages
+%=========================================
+\usepackage{mathrsfs}                 % 花体字母
+\usepackage{dutchcal}                 % 花体小写拉丁字母
+\usepackage{multicol}                 % 跨列单元格合并
+\usepackage{multirow}                 % 跨行单元格合并
+\usepackage{pdflscape}                % 旋转页面
+\usepackage[figuresright]{rotating}   % 表格旋转
+\usepackage{booktabs}                 % 三线表
+\usepackage{diagbox}                  % 绘制斜表头
+\usepackage{arydshln}                 % 画虚线
+\usepackage{anyfontsize}              % 消除字号警告
+%=========================================
+%====== yk 列表格式====== yk - 20220317
+\newcommand{\deflabel}[1]{\bf #1\hfill}%
+\newenvironment{yklist}[1]%
+    {\begin{list}{}{\settowidth{\labelwidth}{\bf #1}
+        \setlength{\leftmargin}{\labelwidth}
+        \addtolength{\leftmargin}{\labelsep}
+        \renewcommand{\makelabel}{\deflabel}
+    }}{\end{list}}
+%======符号列表格式====== yk - 20220317
+\newenvironment{denotation}[1][2.5cm]{
+\pagestyle{plain}
+\noindent
+    \begin{list}{}{
+        \vskip-30bp 
+        \xiaosi
+        \renewcommand\makelabel[1]{##1\hfil}
+        \setlength{\labelwidth}{#1}                     % 标签盒子宽度
+        \setlength{\labelsep}{0.5cm}                    % 标签与列表文本距离
+        \setlength{\itemindent}{0cm}                    % 标签缩进量
+        \setlength{\leftmargin}{\labelwidth+\labelsep}  % 左边界
+        \setlength{\rightmargin}{0cm}
+        \setlength{\parsep}{0cm}                        % 段落间距
+        \setlength{\itemsep}{0cm}                       % 标签间距
+        \setlength{\listparindent}{0cm}                 % 段落缩进量
+        \setlength{\topsep}{0pt}                        % 标签与上文的间距
+    }}{\end{list}} 
+%=========================================
