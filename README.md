@@ -6,8 +6,7 @@ PhD Thesis LaTeX Template of Shaanxi Normal University
 
 
 
-
-
+```
 ---------------------------------------------------------------------------
          _                                     _   _               _     
    _   _| | __     ___ _ __  _ __  _   _      | |_| |__   ___  ___(_)___ 
@@ -28,4 +27,4 @@ PhD Thesis LaTeX Template of Shaanxi Normal University
                3. 使用本模板，需致谢本模板或作者。
                4. 本模板不是官方模板，一切后果自负。
                5. 如果您有不同意见，那么您是对的，我是错的。 
-
+```
