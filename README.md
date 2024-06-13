@@ -24,7 +24,7 @@ PhD Thesis LaTeX Template of Shaanxi Normal University
      作者信息 ： 杨玉坤，陕西师范大学，物理学院，原子与分子物理
      联系方式 ： yykphy@gmail.com ; yk@snnu.edu.cn ; yangyukun@htu.edu.cn 
      注意事项 :
-               3. 使用本模板，需致谢本模板或作者。
-               4. 本模板不是官方模板，一切后果自负。
-               5. 如果您有不同意见，那么您是对的，我是错的。 
+               1. 使用本模板，需致谢本模板或作者。
+               2. 本模板不是官方模板，一切后果自负。
+               3. 如果您有不同意见，那么您是对的，我是错的。 
 ```
