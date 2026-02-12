@@ -22,7 +22,7 @@ PhD Thesis LaTeX Template of Shaanxi Normal University
                2. 简单编译 ： latexmk -xelatex
      最近更新 ： 2022年3月27日
      作者信息 ： 杨玉坤，陕西师范大学，物理学院，原子与分子物理
-     联系方式 ： yykphy@gmail.com ; yk@snnu.edu.cn ; yangyukun@htu.edu.cn 
+     联系方式 ： yykphy@163.com ; yangyukun@htu.edu.cn 
      注意事项 :
                1. 使用本模板，需致谢本模板或作者。
                2. 本模板不是官方模板，一切后果自负。
